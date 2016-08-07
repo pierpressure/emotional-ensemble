@@ -87,3 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+## songs
+*.mp3
+*.m4a
+*.webm
+*.flac

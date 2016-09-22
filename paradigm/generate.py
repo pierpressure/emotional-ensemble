@@ -3,7 +3,7 @@
 import glob
 import random
 
-SONGS = glob.glob('../songs/*Volume.ogg')
+SONGS = glob.glob('../songs/*Volume.wav')
 
 def get_songs():
     songs = list(SONGS)

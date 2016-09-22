@@ -23,7 +23,7 @@ def draw_text(text, center, color=white, size=30, bold=False, background=None,
 def draw_image(img, center):
     rect = img.get_rect()
     rect.center = tuple(center)
-    screen.blit(img, rect)
+    screen.blit(img, rect.center)
 
 def draw_focus_screen():
     p = screen.get_rect().center
@@ -45,6 +45,7 @@ def audio_slide(song):
     focus_slide()
     sound = pygame.mixer.Sound(song)
     sound.play()
+    # pygame.mixer.Sound.play(song)
     return sound.get_length()
 
     

@@ -15,15 +15,15 @@ with open('songs.csv', 'r') as csvfile:
         fname, start_time = row
         print(fname)
 
-        new_name = os.path.splitext(fname)[0] + " Trimmed.ogg"
-        new_name_volume = os.path.splitext(fname)[0] + " Trimmed Volume.ogg"
+        new_name = os.path.splitext(fname)[0] + " Trimmed.wav"
+        new_name_volume = os.path.splitext(fname)[0] + " Trimmed Volume.wav"
 
         if os.path.exists(new_name_volume):
             continue
 
         command = "ffmpeg -y -loglevel panic -i '{}' -ss {} -t 10 '{}'".format(
             fname, start_time, new_name)
-        # print(command)
+        print(command)
         os.system(command)
 
         cmd = "ffmpeg -i '{}'  -af 'volumedetect' -f null /dev/null 2>&1 | grep max_volume".format(new_name)
@@ -35,5 +35,5 @@ with open('songs.csv', 'r') as csvfile:
 
         command = "ffmpeg -y -loglevel panic -i '{}'  -af 'volume={:.1f}dB' '{}'".format(
             new_name, diff, new_name_volume)
-        # print(command)
+        print(command)
         os.system(command)

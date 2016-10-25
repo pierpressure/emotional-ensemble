@@ -65,3 +65,4 @@ for i, song in enumerate(songs):
         finish_stuff(early=True)
         # collector.stop()
         exit()
+exit()
